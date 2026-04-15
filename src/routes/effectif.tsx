@@ -5,9 +5,9 @@ import SectionTitle from "@/components/SectionTitle";
 export const Route = createFileRoute("/effectif")({
   head: () => ({
     meta: [
-      { title: "Effectif — FC Étoile Rouge" },
-      { name: "description", content: "Les joueurs du FC Étoile Rouge." },
-      { property: "og:title", content: "Effectif — FC Étoile Rouge" },
+      { title: "Effectif — FCAZ" },
+      { name: "description", content: "Les joueurs du FC Ait Zeggane." },
+      { property: "og:title", content: "Effectif — FCAZ" },
       { property: "og:description", content: "Découvrez notre équipe." },
     ],
   }),
