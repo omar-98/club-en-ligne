@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import logoFcaz from "@/assets/logo-fcaz.jpg";
 
 const navLinks = [
   { to: "/", label: "Accueil" },
@@ -22,11 +23,9 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-heading font-bold text-primary-foreground text-lg">
-            FC
-          </div>
-          <span className="font-heading text-xl font-bold tracking-wider text-foreground hidden sm:block">
-            FC ÉTOILE ROUGE
+          <img src={logoFcaz} alt="Logo FCAZ" className="w-10 h-10 rounded-full object-cover" width={40} height={40} />
+          <span className="font-heading text-lg font-bold tracking-wider text-foreground hidden sm:block">
+            FCAZ
           </span>
         </Link>
 

@@ -45,10 +45,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --color-club-red: var(--club-red);
-  --color-club-red-light: var(--club-red-light);
+  --color-club-orange: var(--club-orange);
+  --color-club-orange-light: var(--club-orange-light);
+  --color-club-blue: var(--club-blue);
+  --color-club-blue-light: var(--club-blue-light);
   --color-club-dark: var(--club-dark);
-  --color-club-gold: var(--club-gold);
   --color-pitch: var(--pitch);
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
@@ -75,45 +76,46 @@
   --font-heading: 'Oswald', sans-serif;
   --font-body: system-ui, -apple-system, sans-serif;
 
-  /* Club red/black palette */
-  --club-red: oklch(0.55 0.24 25);
-  --club-red-light: oklch(0.65 0.2 25);
+  /* FCAZ palette — orange, blue, black */
+  --club-orange: oklch(0.72 0.16 60);
+  --club-orange-light: oklch(0.78 0.14 60);
+  --club-blue: oklch(0.5 0.2 260);
+  --club-blue-light: oklch(0.6 0.18 260);
   --club-dark: oklch(0.15 0.01 260);
-  --club-gold: oklch(0.78 0.12 80);
   --pitch: oklch(0.5 0.15 145);
 
-  --background: oklch(0.12 0.01 260);
+  --background: oklch(0.13 0.01 260);
   --foreground: oklch(0.95 0.005 260);
   --card: oklch(0.18 0.015 260);
   --card-foreground: oklch(0.95 0.005 260);
   --popover: oklch(0.18 0.015 260);
   --popover-foreground: oklch(0.95 0.005 260);
-  --primary: oklch(0.55 0.24 25);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.22 0.015 260);
+  --primary: oklch(0.72 0.16 60);
+  --primary-foreground: oklch(0.1 0.01 260);
+  --secondary: oklch(0.2 0.015 260);
   --secondary-foreground: oklch(0.9 0.005 260);
   --muted: oklch(0.22 0.015 260);
   --muted-foreground: oklch(0.65 0.02 260);
-  --accent: oklch(0.55 0.24 25);
+  --accent: oklch(0.5 0.2 260);
   --accent-foreground: oklch(0.98 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.28 0.02 260);
   --input: oklch(0.25 0.015 260);
-  --ring: oklch(0.55 0.24 25);
-  --chart-1: oklch(0.55 0.24 25);
-  --chart-2: oklch(0.5 0.15 145);
-  --chart-3: oklch(0.78 0.12 80);
-  --chart-4: oklch(0.65 0.2 25);
-  --chart-5: oklch(0.6 0.1 260);
+  --ring: oklch(0.72 0.16 60);
+  --chart-1: oklch(0.72 0.16 60);
+  --chart-2: oklch(0.5 0.2 260);
+  --chart-3: oklch(0.5 0.15 145);
+  --chart-4: oklch(0.78 0.14 60);
+  --chart-5: oklch(0.6 0.18 260);
   --sidebar: oklch(0.15 0.01 260);
   --sidebar-foreground: oklch(0.95 0.005 260);
-  --sidebar-primary: oklch(0.55 0.24 25);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.72 0.16 60);
+  --sidebar-primary-foreground: oklch(0.1 0.01 260);
   --sidebar-accent: oklch(0.22 0.015 260);
   --sidebar-accent-foreground: oklch(0.95 0.005 260);
   --sidebar-border: oklch(0.28 0.02 260);
-  --sidebar-ring: oklch(0.55 0.24 25);
+  --sidebar-ring: oklch(0.72 0.16 60);
 }
 
 @layer base {
@@ -136,7 +138,7 @@
 
 @layer utilities {
   .text-gradient-club {
-    background: linear-gradient(135deg, var(--club-red), var(--club-gold));
+    background: linear-gradient(135deg, var(--club-orange), var(--club-blue));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -151,8 +153,8 @@
   }
 
   .border-glow {
-    border: 1px solid var(--club-red);
-    box-shadow: 0 0 15px oklch(0.55 0.24 25 / 20%);
+    border: 1px solid var(--club-orange);
+    box-shadow: 0 0 15px oklch(0.72 0.16 60 / 20%);
   }
 
   .hover-lift {

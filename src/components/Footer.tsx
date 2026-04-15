@@ -1,18 +1,20 @@
 import { Link } from "@tanstack/react-router";
+import logoFcaz from "@/assets/logo-fcaz.jpg";
 
 export default function Footer() {
   return (
     <footer className="bg-secondary border-t border-border">
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-heading font-bold text-primary-foreground text-lg">
-              FC
+          <div className="flex items-center gap-3 mb-4">
+            <img src={logoFcaz} alt="Logo FCAZ" className="w-12 h-12 rounded-full object-cover" width={48} height={48} loading="lazy" />
+            <div>
+              <span className="font-heading text-lg font-bold text-foreground block">FC Ait Zeggane</span>
+              <span className="text-xs text-muted-foreground">FCAZ</span>
             </div>
-            <span className="font-heading text-xl font-bold text-foreground">FC ÉTOILE ROUGE</span>
           </div>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Passion, engagement et fierté depuis 1920. Rejoignez-nous dans l'aventure.
+            Passion, engagement et fierté. Rejoignez-nous dans l'aventure du football.
           </p>
         </div>
         <div>
@@ -32,13 +34,12 @@ export default function Footer() {
         </div>
         <div>
           <h4 className="font-heading text-sm font-bold text-foreground mb-4">Contact</h4>
-          <p className="text-sm text-muted-foreground">Stade Municipal, 12 Rue du Sport</p>
-          <p className="text-sm text-muted-foreground">75000 Paris, France</p>
-          <p className="text-sm text-muted-foreground mt-2">contact@fcetoilerouge.fr</p>
+          <p className="text-sm text-muted-foreground">Ait Zeggane, Algérie</p>
+          <p className="text-sm text-muted-foreground mt-2">contact@fcaz.dz</p>
         </div>
       </div>
       <div className="border-t border-border py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} FC Étoile Rouge. Tous droits réservés.
+        © {new Date().getFullYear()} Football Club Ait Zeggane. Tous droits réservés.
       </div>
     </footer>
   );
