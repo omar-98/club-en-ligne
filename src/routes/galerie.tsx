@@ -1,20 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import SectionTitle from "@/components/SectionTitle";
+import { PublicGallery } from "@/components/public/PublicGallery";
 
 export const Route = createFileRoute("/galerie")({
   head: () => ({
     meta: [
       { title: "Galerie — FCAZ" },
-      { name: "description", content: "Photos et moments forts du FC Ait Zeggane." },
+      { name: "description", content: "Photos, actualités et moments forts du FC Ait Zeggane." },
       { property: "og:title", content: "Galerie — FCAZ" },
-      { property: "og:description", content: "Photos du club." },
+      { property: "og:description", content: "Galerie et actualités du club." },
     ],
   }),
   component: GaleriePage,
 });
 
+function GaleriePage() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold mb-3">Galerie & Actualités</h1>
+          <p className="text-gray-600 text-lg">
+            Découvrez les dernières actualités, événements et moments forts du FC Ait Zeggane
+          </p>
+        </div>
+        <PublicGallery />
+      </div>
+    </div>
+  );
+}
+
+// Keep old code for reference (unused)
 const categories = ["Tout", "Matchs", "Entraînements", "Événements"];
 
 const photos = [
