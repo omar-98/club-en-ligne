@@ -9,8 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PartenairesRouteImport } from './routes/partenaires'
+import { Route as MatchsRouteImport } from './routes/matchs'
+import { Route as HistoriqueRouteImport } from './routes/historique'
+import { Route as GalerieRouteImport } from './routes/galerie'
+import { Route as EffectifRouteImport } from './routes/effectif'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ClassementRouteImport } from './routes/classement'
+import { Route as ActualitesRouteImport } from './routes/actualites'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PartenairesRoute = PartenairesRouteImport.update({
+  id: '/partenaires',
+  path: '/partenaires',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MatchsRoute = MatchsRouteImport.update({
+  id: '/matchs',
+  path: '/matchs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoriqueRoute = HistoriqueRouteImport.update({
+  id: '/historique',
+  path: '/historique',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalerieRoute = GalerieRouteImport.update({
+  id: '/galerie',
+  path: '/galerie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EffectifRoute = EffectifRouteImport.update({
+  id: '/effectif',
+  path: '/effectif',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClassementRoute = ClassementRouteImport.update({
+  id: '/classement',
+  path: '/classement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActualitesRoute = ActualitesRouteImport.update({
+  id: '/actualites',
+  path: '/actualites',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +67,144 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/actualites': typeof ActualitesRoute
+  '/classement': typeof ClassementRoute
+  '/contact': typeof ContactRoute
+  '/effectif': typeof EffectifRoute
+  '/galerie': typeof GalerieRoute
+  '/historique': typeof HistoriqueRoute
+  '/matchs': typeof MatchsRoute
+  '/partenaires': typeof PartenairesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/actualites': typeof ActualitesRoute
+  '/classement': typeof ClassementRoute
+  '/contact': typeof ContactRoute
+  '/effectif': typeof EffectifRoute
+  '/galerie': typeof GalerieRoute
+  '/historique': typeof HistoriqueRoute
+  '/matchs': typeof MatchsRoute
+  '/partenaires': typeof PartenairesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/actualites': typeof ActualitesRoute
+  '/classement': typeof ClassementRoute
+  '/contact': typeof ContactRoute
+  '/effectif': typeof EffectifRoute
+  '/galerie': typeof GalerieRoute
+  '/historique': typeof HistoriqueRoute
+  '/matchs': typeof MatchsRoute
+  '/partenaires': typeof PartenairesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/actualites'
+    | '/classement'
+    | '/contact'
+    | '/effectif'
+    | '/galerie'
+    | '/historique'
+    | '/matchs'
+    | '/partenaires'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/actualites'
+    | '/classement'
+    | '/contact'
+    | '/effectif'
+    | '/galerie'
+    | '/historique'
+    | '/matchs'
+    | '/partenaires'
+  id:
+    | '__root__'
+    | '/'
+    | '/actualites'
+    | '/classement'
+    | '/contact'
+    | '/effectif'
+    | '/galerie'
+    | '/historique'
+    | '/matchs'
+    | '/partenaires'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActualitesRoute: typeof ActualitesRoute
+  ClassementRoute: typeof ClassementRoute
+  ContactRoute: typeof ContactRoute
+  EffectifRoute: typeof EffectifRoute
+  GalerieRoute: typeof GalerieRoute
+  HistoriqueRoute: typeof HistoriqueRoute
+  MatchsRoute: typeof MatchsRoute
+  PartenairesRoute: typeof PartenairesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/partenaires': {
+      id: '/partenaires'
+      path: '/partenaires'
+      fullPath: '/partenaires'
+      preLoaderRoute: typeof PartenairesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/matchs': {
+      id: '/matchs'
+      path: '/matchs'
+      fullPath: '/matchs'
+      preLoaderRoute: typeof MatchsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historique': {
+      id: '/historique'
+      path: '/historique'
+      fullPath: '/historique'
+      preLoaderRoute: typeof HistoriqueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galerie': {
+      id: '/galerie'
+      path: '/galerie'
+      fullPath: '/galerie'
+      preLoaderRoute: typeof GalerieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/effectif': {
+      id: '/effectif'
+      path: '/effectif'
+      fullPath: '/effectif'
+      preLoaderRoute: typeof EffectifRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/classement': {
+      id: '/classement'
+      path: '/classement'
+      fullPath: '/classement'
+      preLoaderRoute: typeof ClassementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actualites': {
+      id: '/actualites'
+      path: '/actualites'
+      fullPath: '/actualites'
+      preLoaderRoute: typeof ActualitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +217,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActualitesRoute: ActualitesRoute,
+  ClassementRoute: ClassementRoute,
+  ContactRoute: ContactRoute,
+  EffectifRoute: EffectifRoute,
+  GalerieRoute: GalerieRoute,
+  HistoriqueRoute: HistoriqueRoute,
+  MatchsRoute: MatchsRoute,
+  PartenairesRoute: PartenairesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
