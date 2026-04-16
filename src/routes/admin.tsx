@@ -1,4 +1,4 @@
-import { createFileRoute, Navigate, Outlet } from '@tanstack/react-router';
+import { createFileRoute, Outlet } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { AdminNavigation } from '@/components/admin/AdminNavigation';
@@ -7,20 +7,29 @@ import { isUserAdmin } from '@/integrations/supabase/admin-check';
 
 function AdminLayout() {
   const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function checkAdmin() {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      try {
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
 
-      if (!user) {
+        if (!user) {
+          setIsAdmin(false);
+          setLoading(false);
+          return;
+        }
+
+        const admin = await isUserAdmin(user.id);
+        setIsAdmin(admin);
+      } catch (error) {
+        console.error('Error checking admin:', error);
         setIsAdmin(false);
-        return;
+      } finally {
+        setLoading(false);
       }
-
-      const admin = await isUserAdmin(user.id);
-      setIsAdmin(admin);
     }
 
     checkAdmin();
@@ -31,8 +40,13 @@ function AdminLayout() {
         return;
       }
 
-      const admin = await isUserAdmin(session.user.id);
-      setIsAdmin(admin);
+      try {
+        const admin = await isUserAdmin(session.user.id);
+        setIsAdmin(admin);
+      } catch (error) {
+        console.error('Error checking admin:', error);
+        setIsAdmin(false);
+      }
     });
 
     return () => {
@@ -40,7 +54,7 @@ function AdminLayout() {
     };
   }, []);
 
-  if (isAdmin === null) {
+  if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         Vérification des accès...
